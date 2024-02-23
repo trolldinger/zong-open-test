@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemReceiver : MonoBehaviour
+public class ItemReceiver : InteractableItem
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public override void PickItem()
     {
-        
+        if(!CanInteract)
+            return;
+        //remove item from inventory
+        Inventory.Instance.RemoveItem(this);
+        //default behaviour
+        if(pickParticle != null)
+            pickParticle.Play();
+        if(_disappearAfterInteraction)
+            gameObject.GetComponent<Renderer>().enabled=false;
+        HideItem();
+        CanInteract=false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
