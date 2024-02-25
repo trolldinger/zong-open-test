@@ -2,9 +2,9 @@
 
 1- 3rd Party Assets used:
 
-  A- Used the new URP package´s Garden Scene (included in repository)
-  B- Used particle effects from AllIn1VFXToolkit (included in repository)
-  C- used generated 8 bit SFX .WAV files
+  - Used the new URP package´s Garden Scene (included in repository)
+  - Used particle effects from AllIn1VFXToolkit (included in repository)
+  - used generated 8 bit SFX .WAV files
 
 2- Requirements approach:
 
