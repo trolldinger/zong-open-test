@@ -18,16 +18,19 @@ public class InteractableItem : MonoBehaviour,IItem
     [SerializeField]protected float _hoverVelocity = 1f;
     [SerializeField]protected string _hoverText;
     [SerializeField]protected TMP_Text textHolder;
+    [SerializeField]protected AudioClip _interactSound;
     [SerializeField]protected ParticleSystem pickParticle;
 
     [SerializeField]protected string _itemName;
     [SerializeField]protected ItemType _itemType;
 
     private bool isHover;
+    protected AudioSource _source;
     
 
     private void Start()
     {
+        _source = GetComponent<AudioSource>();
         textHolder.text =_hoverText;
         textHolder.color = new Color(textHolder.color.r,textHolder.color.g,textHolder.color.b,0f);
     }
@@ -64,6 +67,7 @@ public class InteractableItem : MonoBehaviour,IItem
         Inventory.Instance.AddItem(this);
         if(_disappearAfterInteraction)
             gameObject.GetComponent<Renderer>().enabled=false;
+        _source.PlayOneShot(_interactSound);
         HideItem();
         OnInteractEvent.Invoke();
         CanInteract=false;

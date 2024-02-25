@@ -17,6 +17,7 @@ public class ItemReceiver : InteractableItem
         if(_disappearAfterInteraction)
             gameObject.GetComponent<Renderer>().enabled=false;
         HideItem();
+        _source.PlayOneShot(_interactSound);
         OnInteractEvent.Invoke();
         CanInteract=false;
     }
