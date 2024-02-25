@@ -16,7 +16,17 @@ public class Inventory : MonoBehaviour
 
     public bool HasItem(IItem item)
     {
-        return Items.Contains(Items.Find(x=>x.ItemName == item.ItemName));
+        return Items.Find(x=>x.ItemName == item.ItemName) != null;
+    }
+
+    public InventoryItem[] GetAllWeapons()
+    {
+        return Items.FindAll(x => x.Type == ItemType.Weapon).ToArray();
+    }
+
+    public InventoryItem[] GetAllInstruments()
+    {
+        return Items.FindAll(x => x.Type == ItemType.Instrument).ToArray();
     }
 
     public void AddItem(IItem item)

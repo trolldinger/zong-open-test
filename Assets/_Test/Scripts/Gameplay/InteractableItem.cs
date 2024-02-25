@@ -1,8 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class InteractableItem : MonoBehaviour,IItem
 {
+
+    public OnInteractEvent OnInteractEvent;
+
     public bool CanInteract {get => _interactable; set => _interactable = value;}
     public string ItemName => _itemName;
     public ItemType ItemType => _itemType;
@@ -60,6 +65,10 @@ public class InteractableItem : MonoBehaviour,IItem
         if(_disappearAfterInteraction)
             gameObject.GetComponent<Renderer>().enabled=false;
         HideItem();
+        OnInteractEvent.Invoke();
         CanInteract=false;
     }
 }
+
+[System.Serializable]
+public class OnInteractEvent : UnityEvent { };

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemReceiver : InteractableItem
@@ -9,6 +7,8 @@ public class ItemReceiver : InteractableItem
     {
         if(!CanInteract)
             return;
+        if(!Inventory.Instance.HasItem(this))
+            return;
         //remove item from inventory
         Inventory.Instance.RemoveItem(this);
         //default behaviour
@@ -17,6 +17,7 @@ public class ItemReceiver : InteractableItem
         if(_disappearAfterInteraction)
             gameObject.GetComponent<Renderer>().enabled=false;
         HideItem();
+        OnInteractEvent.Invoke();
         CanInteract=false;
     }
 

@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7539784711518044795, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
       propertyPath: m_Name
-      value: Box Variant
+      value: ItemReceiver
       objectReference: {fileID: 0}
     - target: {fileID: 7967301597622495908, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
       propertyPath: m_Mesh
@@ -82,12 +82,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1656278750206124621, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
+    - {fileID: 4858955774327803275, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7539784711518044795, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8398650897163507140}
+    - targetCorrespondingSourceObject: {fileID: 7539784711518044795, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2941525847516096857}
   m_SourcePrefab: {fileID: 100100000, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
 --- !u!198 &4643480432454737707 stripped
 ParticleSystem:
@@ -111,6 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f61a4baaa06345f8aa846af72b26457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _interactable: 1
   _disappearAfterInteraction: 0
   _hoverVelocity: 1
@@ -119,6 +126,27 @@ MonoBehaviour:
   pickParticle: {fileID: 4643480432454737707}
   _itemName: Stone
   _itemType: 1
+--- !u!65 &2941525847516096857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734512779038302712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7412711478065214270 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5749356912212562109, guid: 04c02c389b41547fdbd83e79251311f0, type: 3}
